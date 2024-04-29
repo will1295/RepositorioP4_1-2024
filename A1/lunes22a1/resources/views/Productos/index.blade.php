@@ -15,6 +15,7 @@
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Descripción</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,14 @@
                 <td>{{$producto->nombre}}</td>
                 <td>{{$producto->precio}}</td>
                 <td>{{$producto->descripcion}}</td>
+                <td>
+                    <a href="{{route('editar',$producto->id)}}">Editar</a>
+                    <form action="{{route('eliminar',$producto->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Eliminar</button>
+                    </form>
+                </td>
             </tr>
 
             @endforeach

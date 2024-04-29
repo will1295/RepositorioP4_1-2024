@@ -20,4 +20,22 @@ class ProductosController extends Controller
         productos::create($request->all());
         return redirect('/');
     }
+
+    public function editform($id){
+        $producto = productos::findOrFail($id);
+        return view('Productos.edit',compact('producto'));
+    }
+
+    public function actualizar(Request $request,$id){
+        $producto = productos::findOrFail($id);
+        $producto->update($request->all());
+        return redirect('/');
+
+    }
+
+    public function eliminar($id){
+        $producto = productos::findOrFail($id);
+        $producto->delete();
+        return redirect('/');
+    }
 }
