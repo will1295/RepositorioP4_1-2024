@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="{{url('/crear')}}" method="post">
+        @csrf
         <input type="text" name="marca" id="marca" placeholder="Marca" required>
         <input type="text" name="modelo" id="modelo" placeholder="Modelo" required>
         <input type="text" name="color" id="color" placeholder="Color" required>

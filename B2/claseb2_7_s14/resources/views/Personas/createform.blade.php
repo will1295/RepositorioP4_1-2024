@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('crear')}}" method="post">
+    <form action="{{url('/form')}}" method="post">
         @csrf
         <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
         <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
