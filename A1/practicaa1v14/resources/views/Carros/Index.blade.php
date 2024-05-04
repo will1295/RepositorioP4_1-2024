@@ -6,13 +6,47 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        @csrf
-        <input type="text" name="marca" id="marca" placeholder="Marca">
-        <input type="text" name="modelo" id="modelo" placeholder="Modelo">
-        <input type="text" name="placa" id="placa" placeholder="Placa">
-        <input type="submit" value="Guardar">
+    <h1>Registros</h1>
+    {{--
+    <form action="{{route('formguardar')}}" method="get">
+        <input type="submit" value="Agregar nuevo registro">
+    </form>--}}
+    <form action="{{url('/guardar')}}" method="get">
+        <input type="submit" value="Agregar nuevo registro">
     </form>
-    
+    <table>
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($carros as $carro)
+            <tr>
+                <td>{{$carro->marca}}</td>
+                <td>{{$carro->modelo}}</td>
+                <td>{{$carro->placa}}</td>
+                <td>
+                    {{--
+                    <a href="">Editar</a>
+                    <a href="">Eliminar</a>--}}
+
+                    <form action="{{route('formeditar',$carro->id)}}" method="get">
+                        <input type="submit" value="Editar">
+                    </form>
+                    <form action="{{route('delete',$carro->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Eliminar">
+                    </form>
+                </td>
+
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>
