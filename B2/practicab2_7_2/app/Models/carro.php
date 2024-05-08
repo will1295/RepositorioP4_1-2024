@@ -17,8 +17,8 @@ class carro extends Model
         'idmarca'
     ];
 
-    public function marca(){
-        return $this->belongsTo(marcas::class,'id');
+    public function marcas(){
+        return $this->belongsTo(marcas::class,'idmarca');
     }
 
     

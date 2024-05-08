@@ -28,7 +28,7 @@
                 <td>{{$carro->color}}</td>
                 <td>{{$carro->km}}</td>
                 <td>{{$carro->tipoc}}</td>
-                <td>{{$carro->idmarca}}</td>
+                <td>{{$carro->marcas->nombre}}</td>
             </tr>
             @endforeach
         </tbody>

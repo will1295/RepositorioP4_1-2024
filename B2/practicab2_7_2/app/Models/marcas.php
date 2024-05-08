@@ -15,7 +15,7 @@ class marcas extends Model
     ];
 
     public function carro(){
-        return $this->hasMany(carro::class,'idmarca');
+        return $this->hasMany(carro::class,'id');
     }
 
     use HasFactory;
